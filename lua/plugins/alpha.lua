@@ -35,7 +35,7 @@ return {
 		}
 
 		local function footer()
-			return "Don't be upset by the results you didn't get with the work you didn't do."
+			return "Believe in the power ONE MORE."
 		end
 
 		dashboard.section.footer.val = footer()
