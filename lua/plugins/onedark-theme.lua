@@ -9,7 +9,6 @@ return {
       colors = {
         purple = "#ff78b2",
         green = "#ff806c",
-
       },
 		})
 		require("onedark").load()
