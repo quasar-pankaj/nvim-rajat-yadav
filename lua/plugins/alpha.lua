@@ -44,7 +44,7 @@ return {
 [[⠀   ⠀⠈⠙⠻⠷⣶⣶⣶⣶⣶⠿⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    ]],
 		}
 
-		_Gopts = {
+    _Gopts = {
 			position = "center",
 			hl = "Type",
 			-- wrap = "overflow";

@@ -1,5 +1,5 @@
 local function dailyQuote()
-  return[[Fire tests gold, suffering tests brave men.]]
+  return[[Always do what you are afraid to do.]]
 end
 
 return {
