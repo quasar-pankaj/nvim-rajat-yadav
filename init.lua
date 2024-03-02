@@ -15,3 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("lazy").setup("plugins")
+
+vim.cmd("hi LineNr term=bold gui=bold cterm=bold guifg=yellow")
+vim.cmd("hi LineNrAbove guifg=grey")
+vim.cmd("hi LineNrBelow guifg=grey")

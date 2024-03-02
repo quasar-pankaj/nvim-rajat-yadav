@@ -1,6 +1,18 @@
-local function dailyQuote()
-  return[[Always do what you are afraid to do.]]
+local clients_lsp = function ()
+  local bufnr = vim.api.nvim_get_current_buf()
+
+  local clients = vim.lsp.buf_get_clients(bufnr)
+  if next(clients) == nil then
+    return ''
+  end
+
+  local c = {}
+  for _, client in pairs(clients) do
+    table.insert(c, client.name)
+  end
+  return '\u{f085} ' .. table.concat(c, '|')
 end
+
 
 return {
 	"nvim-lualine/lualine.nvim",
@@ -16,9 +28,9 @@ return {
 					{ "mode", separator = { left = "" }, right_padding = 2 },
 				},
 				lualine_b = { "filename", "branch" },
-				lualine_c = {},
+        lualine_c = {},
 				lualine_x = {},
-				lualine_y = { "filetype", "selectioncount", dailyQuote },
+				lualine_y = { "filetype", "diff", clients_lsp  },
 				lualine_z = {
 					{ "location", separator = { right = "" }, left_padding = 2 },
 				},
