@@ -44,19 +44,6 @@ return {
 [[⠀   ⠀⠈⠙⠻⠷⣶⣶⣶⣶⣶⠿⠿⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    ]],
 		}
 
-    _Gopts = {
-			position = "center",
-			hl = "Type",
-			-- wrap = "overflow";
-		}
-
-		local function footer()
-			return "Get it done by TODAY bruv!"
-		end
-
-		dashboard.section.footer.val = footer()
-
-		dashboard.opts.opts.noautocmd = true
 		alpha.setup(dashboard.opts)
 	end,
 }
