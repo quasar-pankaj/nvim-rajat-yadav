@@ -1,5 +1,9 @@
 return {
   {
+    "onsails/lspkind.nvim",
+    lazy = false,
+  },
+  {
     "L3MON4D3/LuaSnip",
     lazy = false,
     dependencies = {
@@ -22,8 +26,28 @@ return {
       local cmp = require("cmp")
       cmp.setup({
         window = {
-          documentation = cmp.config.window.bordered(),
-          completion = cmp.config.window.bordered(),
+          -- documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({
+            border = "none",
+            side_padding = 0,
+
+          }),
+        },
+        formatting = {
+          fields = { "kind", "abbr", "menu" },
+          format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 30 })(entry, vim_item)
+            vim_item.abbr = (vim_item.abbr or "")
+            vim_item.menu = ({
+              nvim_lsp = "[LSP]",
+              nvim_lua = "[Lua]",
+              luasnip = "[LuaSnip]",
+              buffer = "[Buffer]",
+            })[entry.source.name]
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. (strings[1] or "") .. " "
+            return kind
+          end,
         },
         snippet = {
           expand = function(args)
